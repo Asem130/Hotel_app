@@ -8,25 +8,29 @@ class OnBoardingTitle extends StatelessWidget {
   final String supTitle;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          title,
-          maxLines: 2,
-          textAlign: TextAlign.center,
-          style:
-              Styles.textStyle48.copyWith(color: Colors.white.withOpacity(0.9)),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        Text(
-          supTitle,
-          style: Styles.textStyle20.copyWith(
-            color: Colors.white.withOpacity(0.8),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        children: [
+          Text(
+            title,
+            maxLines: 2,
+            textAlign: TextAlign.center,
+            style: Styles.textStyle40.copyWith(
+                color:
+                    const Color.fromARGB(255, 255, 255, 255).withOpacity(0.9)),
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 30,
+          ),
+          Text(
+            supTitle,
+            style: Styles.textStyle16.copyWith(
+              color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.8),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

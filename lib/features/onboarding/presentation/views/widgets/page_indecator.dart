@@ -12,7 +12,7 @@ class PageIndector extends StatelessWidget {
       controller: controller,
       count: onBoardingItem.length,
       effect: const ExpandingDotsEffect(
-          dotColor: Color.fromARGB(255, 255, 255, 255),
+          dotColor: Color.fromARGB(255, 210, 200, 200),
           dotHeight: 10,
           dotWidth: 10,
           spacing: 5,
