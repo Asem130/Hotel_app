@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hotels/core/utils/app_router.dart';
-import 'package:hotels/core/utils/components/custom_text_Button.dart';
-import 'package:hotels/core/utils/components/custom_text_field.dart';
 import 'package:hotels/core/utils/styles.dart';
+import 'package:hotels/core/widgets/custom_text_field.dart';
 import 'package:hotels/features/Auth/presentation/manger/register_cubit/register_cubit.dart';
 import 'package:hotels/features/Auth/presentation/manger/register_cubit/register_state.dart';
 import 'package:hotels/features/Auth/presentation/views/widgets/background_widget.dart';
 import 'package:hotels/features/Auth/presentation/views/widgets/google_facebook_icon.dart';
 import 'package:hotels/features/Auth/presentation/views/widgets/sperator.dart';
+
+import '../../../../../core/widgets/custom_text_button.dart';
 
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});
@@ -66,7 +67,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                             children: [
                               CustomTextField(
                                 hintText: 'Email',
-                                icon: const Icon(
+                                suffixIcon: const Icon(
                                   Icons.email,
                                   color: Color.fromRGBO(117, 55, 159, 1),
                                 ),
@@ -79,7 +80,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                               ),
                               CustomTextField(
                                 hintText: 'Passward',
-                                icon: const Icon(
+                                suffixIcon: const Icon(
                                   Icons.remove_red_eye,
                                   color: Color.fromRGBO(117, 55, 159, 1),
                                 ),
@@ -91,6 +92,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                                 height: 50,
                               ),
                               CustomTextButton(
+                                width: MediaQuery.of(context).size.width / 1.5,
+                                color: const Color.fromRGBO(117, 55, 159, 1),
                                 onTap: () {
                                   if (formKey.currentState!.validate()) {
                                     BlocProvider.of<RegisterCubit>(context)

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hotels/core/utils/app_router.dart';
-import 'package:hotels/core/utils/components/custom_text_button.dart';
-import 'package:hotels/core/utils/components/custom_text_field.dart';
+import 'package:hotels/core/widgets/custom_text_button.dart';
 import 'package:hotels/core/utils/styles.dart';
+import 'package:hotels/core/widgets/custom_text_field.dart';
 import 'package:hotels/features/Auth/presentation/manger/login_cubit/login_cubit.dart';
 import 'package:hotels/features/Auth/presentation/manger/login_cubit/login_state.dart';
 import 'package:hotels/features/Auth/presentation/views/widgets/google_facebook_icon.dart';
 import 'package:hotels/features/Auth/presentation/views/widgets/sperator.dart';
+import 'package:hotels/features/home/presentation/views/home_view.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -39,10 +40,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         if (state is LoginLoading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is LoginSuccsess) {
-          GoRouter.of(context).go(AppRouter.kHome);
-          return const Text('ddd');
+          return const HomeView();
         } else if (state is LoginFaliare) {
-          return const Text('data');
+          return const Text('dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
         } else {
           return Form(
             autovalidateMode: autovalidateMode,
@@ -82,7 +82,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           children: [
                             CustomTextField(
                               hintText: 'Email',
-                              icon: const Icon(
+                              suffixIcon: const Icon(
                                 Icons.email,
                                 color: Color.fromRGBO(117, 55, 159, 1),
                               ),
@@ -95,7 +95,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                             ),
                             CustomTextField(
                               hintText: 'Passward',
-                              icon: const Icon(
+                              suffixIcon: const Icon(
                                 Icons.remove_red_eye,
                                 color: Color.fromRGBO(117, 55, 159, 1),
                               ),
@@ -107,6 +107,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               height: 50,
                             ),
                             CustomTextButton(
+                              color: const Color.fromRGBO(117, 55, 159, 1),
+                              width: MediaQuery.of(context).size.width / 1.5,
                               onTap: () {
                                 if (formKey.currentState!.validate()) {
                                   BlocProvider.of<LoginCubit>(context)

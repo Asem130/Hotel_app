@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotels/core/utils/custom_painter.dart';
+import 'package:hotels/core/widgets/custom_painter.dart';
 import 'package:widget_mask/widget_mask.dart';
 
 class RegisterBackgroundWidget extends StatelessWidget {
