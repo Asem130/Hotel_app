@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -8,12 +9,16 @@ class CustomTextField extends StatelessWidget {
     required this.onChanged,
     this.prefixIcon,
     this.isFill = false,
+    this.color = Colors.white,
+    this.width = 1,
   });
   final String hintText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final Function(String) onChanged;
   final bool isFill;
+  final Color color;
+  final double width;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -26,7 +31,7 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         filled: isFill,
-        fillColor: Color.fromARGB(255, 240, 240, 240),
+        fillColor: const Color.fromARGB(255, 240, 240, 240),
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         hintText: hintText,
@@ -35,11 +40,11 @@ class CustomTextField extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: Colors.white),
+          borderSide: BorderSide(color: color),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: Colors.white),
+          borderSide: BorderSide(color: color, width: width),
         ),
       ),
     );

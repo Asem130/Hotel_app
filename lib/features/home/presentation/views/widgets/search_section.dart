@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hotels/constants.dart';
+import 'package:hotels/core/utils/app_router.dart';
 import 'package:hotels/core/widgets/custom_text_button.dart';
 
 class SearchSection extends StatelessWidget {
@@ -23,8 +25,11 @@ class SearchSection extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Item(
-                child: SearchChild(),
+              Item(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kDestination);
+                },
+                child: const SearchChild(),
               ),
               const SizedBox(
                 height: 15,
@@ -50,32 +55,35 @@ class SearchSection extends StatelessWidget {
     );
   }
 }
+
 class Item extends StatelessWidget {
-  const Item({super.key, required this.child});
+  const Item({super.key, required this.child, this.onTap});
   final Widget child;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: width,
-          height: height / 15,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: Colors.black.withOpacity(0.1)),
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: child),
-        ),
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: width,
+            height: height / 15,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Colors.black.withOpacity(0.1)),
+            child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: child),
+          ),
+        ],
+      ),
     );
   }
 }
-
-
 
 class SearchChild extends StatelessWidget {
   const SearchChild({super.key});

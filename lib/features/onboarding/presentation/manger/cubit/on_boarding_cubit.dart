@@ -3,6 +3,4 @@ import 'package:hotels/features/onboarding/presentation/manger/cubit/on_boarding
 
 class OnBoardingCubit extends Cubit<OnBoardingStates> {
   OnBoardingCubit() : super(OnBoardingInitial());
-
-
 }

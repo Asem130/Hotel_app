@@ -38,9 +38,7 @@ class HomeViewBody extends StatelessWidget {
           decoration: const BoxDecoration(
             color: kPrimaryColr,
             image: DecorationImage(
-                image: AssetImage(
-                    'assets/images/2.jpg'),
-                fit: BoxFit.cover),
+                image: AssetImage('assets/images/2.jpg'), fit: BoxFit.cover),
           ),
           height: height / 2.5,
           width: width,

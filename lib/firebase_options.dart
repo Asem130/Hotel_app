@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '248424480878',
     projectId: 'hotels-27a0a',
     storageBucket: 'hotels-27a0a.appspot.com',
-    iosClientId: '248424480878-a347oors7grealj8cndg8vuo3uuv614u.apps.googleusercontent.com',
+    iosClientId:
+        '248424480878-a347oors7grealj8cndg8vuo3uuv614u.apps.googleusercontent.com',
     iosBundleId: 'com.example.hotels',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '248424480878',
     projectId: 'hotels-27a0a',
     storageBucket: 'hotels-27a0a.appspot.com',
-    iosClientId: '248424480878-rc43dbc8nlnqh8vkritb9mvfrur1jv52.apps.googleusercontent.com',
+    iosClientId:
+        '248424480878-rc43dbc8nlnqh8vkritb9mvfrur1jv52.apps.googleusercontent.com',
     iosBundleId: 'com.example.hotels.RunnerTests',
   );
 }

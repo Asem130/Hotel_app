@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hotels/core/utils/styles.dart';
 
-class Seperator
- extends StatelessWidget {
-  const Seperator
-  ({super.key});
+class Seperator extends StatelessWidget {
+  const Seperator({super.key});
 
   @override
   Widget build(BuildContext context) {

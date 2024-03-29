@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hotels/features/home/presentation/views/search_view.dart';
 import 'package:hotels/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:hotels/features/Auth/presentation/views/login_view.dart';
 import 'package:hotels/features/Auth/presentation/views/register_view.dart';
@@ -10,6 +11,7 @@ class AppRouter {
   static const kRigester = '/Register';
   static const kLogin = '/Login';
   static const kHome = '/Home';
+  static const kDestination = '/Destination';
   static GoRouter router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -33,6 +35,12 @@ class AppRouter {
       path: kHome,
       builder: (BuildContext context, GoRouterState state) {
         return const HomeView();
+      },
+    ),
+    GoRoute(
+      path: kDestination,
+      builder: (BuildContext context, GoRouterState state) {
+        return const DestinationView();
       },
     ),
   ]);
