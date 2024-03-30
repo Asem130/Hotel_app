@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+  CustomTextField({
     super.key,
     required this.hintText,
     this.suffixIcon,
@@ -11,6 +10,8 @@ class CustomTextField extends StatelessWidget {
     this.isFill = false,
     this.color = Colors.white,
     this.width = 1,
+    this.textColor = Colors.white,
+    this.controller,
   });
   final String hintText;
   final Widget? suffixIcon;
@@ -19,15 +20,18 @@ class CustomTextField extends StatelessWidget {
   final bool isFill;
   final Color color;
   final double width;
+  final Color textColor;
+  TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       validator: (data) {
         if (data!.isEmpty) {
           return 'This feild must be not empty';
         }
       },
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: textColor),
       onChanged: onChanged,
       decoration: InputDecoration(
         filled: isFill,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hotels/features/home/presentation/views/search_view.dart';
+import 'package:hotels/features/home/presentation/views/destination_view.dart';
 import 'package:hotels/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:hotels/features/Auth/presentation/views/login_view.dart';
 import 'package:hotels/features/Auth/presentation/views/register_view.dart';
