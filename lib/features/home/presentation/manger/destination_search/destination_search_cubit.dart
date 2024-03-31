@@ -8,7 +8,6 @@ class DestinationSearchCubit extends Cubit<DestinationSearchState> {
   List<SearchLocation> searchLocation = [];
   void getDestination({required String cityName}) async {
     emit(DestinationSearchLoading());
-    
     try {
       searchLocation = await ApiServicese().getSearch(cityName: cityName);
       emit(DestinationSearchSuccsess(searchLocation: searchLocation));

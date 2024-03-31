@@ -5,8 +5,8 @@ import 'package:hotels/core/utils/app_router.dart';
 import 'package:hotels/core/widgets/custom_text_button.dart';
 
 class SearchSection extends StatelessWidget {
-  const SearchSection({super.key});
-
+  const SearchSection({super.key,required this.cityName });
+  final String cityName;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -22,14 +22,26 @@ class SearchSection extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
+          child: /*TextField(
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kDestination);
+            },
+            decoration: const InputDecoration(
+              hintText: 's',
+              enabledBorder: OutlineInputBorder(),
+            ),
+          ),*/
+
+              Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Item(
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kDestination);
                 },
-                child: const SearchChild(),
+                child: SearchChild(
+                  cityName: cityName,
+                ),
               ),
               const SizedBox(
                 height: 15,
@@ -47,7 +59,7 @@ class SearchSection extends StatelessWidget {
                 height: 15,
               ),
               CustomTextButton(
-                  color: kPrimaryColr, width: width, text: 'Search')
+                  color: kPrimaryColor, width: width, text: 'Search')
             ],
           ),
         ),
@@ -86,20 +98,20 @@ class Item extends StatelessWidget {
 }
 
 class SearchChild extends StatelessWidget {
-  const SearchChild({super.key});
-
+  const SearchChild({super.key, required this.cityName});
+  final String cityName;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Icon(
+        const Icon(
           Icons.search,
           size: 18,
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
-        Text('London'),
+        Text(cityName),
       ],
     );
   }

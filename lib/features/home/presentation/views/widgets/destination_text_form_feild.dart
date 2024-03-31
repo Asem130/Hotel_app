@@ -37,19 +37,20 @@ class _DestinationTextFormFieldState extends State<DestinationTextFormField> {
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 3, color: kPrimaryColr),
+          borderSide: const BorderSide(width: 3, color: kPrimaryColor),
           borderRadius: BorderRadius.circular(16),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 3, color: kPrimaryColr),
+          borderSide: const BorderSide(width: 3, color: kPrimaryColor),
           borderRadius: BorderRadius.circular(16),
         ),
       ),
       controller: controller,
-      onChanged: (value) {
+      onFieldSubmitted: (value) {
         BlocProvider.of<DestinationSearchCubit>(context)
             .getDestination(cityName: value);
       },
+    
       style: const TextStyle(
         color: Colors.black,
       ),

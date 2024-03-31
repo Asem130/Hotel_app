@@ -17,7 +17,8 @@ class DestinationBody extends StatelessWidget {
         child: const Column(
           children: [
             DestinationTextFormField(),
-            Expanded(child: DestinationResult()),
+            SizedBox(height: 20,),
+            DestinationResult(),
           ],
         ),
       ),

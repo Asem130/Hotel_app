@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hotels/core/utils/styles.dart';
 import 'package:hotels/features/home/data/models/search_location/search_location.dart';
+import 'package:hotels/features/home/presentation/views/widgets/destination_search_image_item.dart';
+import 'package:hotels/features/home/presentation/views/widgets/destination_search_text_item.dart';
 
 class DestinationItem extends StatelessWidget {
   const DestinationItem({super.key, required this.searchLocation});
@@ -9,39 +10,15 @@ class DestinationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          height: 50,
-          width: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            image: DecorationImage(
-                image:  NetworkImage(searchLocation.imageUrl!),
-                fit: BoxFit.cover),
-          ),
-        ),
+        DestinationSearchImageItem(searchLocation: searchLocation),
         const SizedBox(
           width: 10,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              searchLocation.cityName!,
-              style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),
-            ),
-            Text(
-              searchLocation.label!,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: Styles.textStyle16.copyWith(
-                fontSize: 14,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
+        Expanded(
+          child: DestinationSearchTextItem(
+            searchLocation: searchLocation,
+          ),
+        )
       ],
     );
   }

@@ -3,14 +3,14 @@ import 'package:hotels/constants.dart';
 import 'package:hotels/features/home/presentation/views/widgets/search_section.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
+  const HomeView({super.key, this.cityName = 'cairo'});
+  final String cityName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: kPrimaryColr,
+        backgroundColor: kPrimaryColor,
         centerTitle: true,
         title: const Text(
           'Hotels Booking',
@@ -20,13 +20,18 @@ class HomeView extends StatelessWidget {
         ),
       ),
       backgroundColor: const Color.fromARGB(26, 225, 183, 183),
-      body: const SafeArea(child: HomeViewBody()),
+      body: SafeArea(
+          child: HomeViewBody(
+        cityName: cityName,
+      )),
     );
   }
 }
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, required this.cityName});
+
+  final String cityName;
 
   @override
   Widget build(BuildContext context) {
@@ -36,20 +41,22 @@ class HomeViewBody extends StatelessWidget {
       children: [
         Container(
           decoration: const BoxDecoration(
-            color: kPrimaryColr,
+            color: kPrimaryColor,
             image: DecorationImage(
                 image: AssetImage('assets/images/2.jpg'), fit: BoxFit.cover),
           ),
           height: height / 2.5,
           width: width,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: Column(
               children: [
-                SearchSection(),
+                SearchSection(
+                  cityName: cityName,
+                ),
               ],
             ),
           ),

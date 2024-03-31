@@ -32,9 +32,12 @@ class AppRouter {
       },
     ),
     GoRoute(
-      path: kHome,
+      path: '$kHome/:cityName',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomeView();
+        final cityName = state.pathParameters['cityName'];
+        return HomeView(
+          cityName: cityName!,
+        );
       },
     ),
     GoRoute(

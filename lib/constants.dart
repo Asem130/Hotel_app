@@ -5,4 +5,4 @@ const List<String> kOnBoardingImage = [
   'assets/images/2.jpg',
   'assets/images/59.jpg'
 ];
-const kPrimaryColr = Color.fromARGB(255, 75, 34, 225);
+const kPrimaryColor = Color.fromARGB(255, 75, 34, 225);
