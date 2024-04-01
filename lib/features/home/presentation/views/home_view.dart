@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
               color: Color.fromARGB(255, 255, 255, 255)),
         ),
       ),
-      backgroundColor:Color.fromARGB(255, 225, 225, 225),
+      backgroundColor: const Color.fromARGB(255, 225, 225, 225),
       body: SafeArea(
           child: HomeViewBody(
         cityName: cityName,
@@ -42,10 +42,8 @@ class HomeViewBody extends StatelessWidget {
         Container(
           decoration: const BoxDecoration(
             color: kPrimaryColor,
-            image: DecorationImage(
-                image: AssetImage('assets/images/2.jpg'), fit: BoxFit.cover),
           ),
-          height: height / 2.5,
+          height: height / 4.5,
           width: width,
         ),
         Padding(

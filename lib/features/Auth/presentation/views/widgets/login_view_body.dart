@@ -107,6 +107,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               height: 50,
                             ),
                             CustomTextButton(
+                              radius: 24,
                               color: const Color.fromRGBO(117, 55, 159, 1),
                               width: MediaQuery.of(context).size.width / 1.5,
                               onTap: () {

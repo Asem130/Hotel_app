@@ -92,6 +92,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                                 height: 50,
                               ),
                               CustomTextButton(
+                                radius: 24,
                                 width: MediaQuery.of(context).size.width / 1.5,
                                 color: const Color.fromRGBO(117, 55, 159, 1),
                                 onTap: () {

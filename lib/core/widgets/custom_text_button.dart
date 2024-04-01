@@ -7,11 +7,12 @@ class CustomTextButton extends StatelessWidget {
       this.onTap,
       required this.text,
       required this.color,
-      required this.width});
+      required this.width, required this.radius});
   final void Function()? onTap;
   final String text;
   final Color color;
   final double width;
+  final double radius;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -22,7 +23,7 @@ class CustomTextButton extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(radius),
         ),
         child: Center(
           child: Text(
