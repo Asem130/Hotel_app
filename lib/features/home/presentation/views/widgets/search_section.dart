@@ -1,10 +1,12 @@
+import 'package:customizable_counter/customizable_counter.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hotels/constants.dart';
 import 'package:hotels/core/utils/app_router.dart';
+import 'package:hotels/core/utils/styles.dart';
 import 'package:hotels/core/widgets/custom_text_button.dart';
-import 'package:hotels/features/home/presentation/views/widgets/show_custom_data_picker.dart';
+import 'package:hotels/features/home/presentation/views/widgets/custom_counter.dart';
 
 class SearchSection extends StatelessWidget {
   const SearchSection({super.key, required this.cityName});
@@ -51,21 +53,24 @@ class SearchSection extends StatelessWidget {
                 height: 15,
               ),
               Item(
-                onTap: () async {
-                  await showDatePicker(
-                    
-                      context: context,
-                      initialDate: now,
-                      firstDate: firstTime,
-                      lastDate: DateTime(now.year, 10, 1));
-                },
+                onTap: () async {},
                 child: const PickDateChild(),
               ),
               const SizedBox(
                 height: 15,
               ),
-              const Item(
-                child: RoomsChild(),
+              Item(
+                onTap: () {
+                  showModalBottomSheet(
+                  backgroundColor: Color.fromARGB(255, 102, 25, 25),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    context: context,
+                    builder: (context) => const SelectRoomsAndGuests(),
+                  );
+                },
+                child: const RoomsChild(),
               ),
               const SizedBox(
                 height: 15,
@@ -162,6 +167,109 @@ class RoomsChild extends StatelessWidget {
           width: 10,
         ),
         Text('1 room . 2 adults . 0 children'),
+      ],
+    );
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class SelectRoomsAndGuests extends StatelessWidget {
+  const SelectRoomsAndGuests({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SelectRoomsAndGuestsBody();
+  }
+}
+
+class SelectRoomsAndGuestsBody extends StatelessWidget {
+  const SelectRoomsAndGuestsBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 2,
+      width: double.infinity,
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: 16,
+          top: 24,
+          right: 16,
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: Column(children: [
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 145, 143, 143),
+                borderRadius: BorderRadius.circular(12)),
+            height: 5,
+            width: 60,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Select rooms and guests',
+                style: Styles.textStyle22,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SelectRoomsAndGuestsItem(text: 'Rooms'),
+              SizedBox(
+                height: 20,
+              ),
+              SelectRoomsAndGuestsItem(text: 'Adults'),
+              SizedBox(
+                height: 20,
+              ),
+              SelectRoomsAndGuestsItem(text: 'Chidren'),
+            ],
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
+class SelectRoomsAndGuestsItem extends StatelessWidget {
+  const SelectRoomsAndGuestsItem({super.key, required this.text});
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          text,
+          style: Styles.textStyle18,
+        ),
+        const Spacer(),
+        CustomCounter(
+            borderColor: kPrimaryColor,
+            borderWidth: 2,
+            borderRadius: 5,
+            backgroundColor: Colors.white,
+            textColor: const Color.fromARGB(255, 0, 0, 0),
+            textSize: 15,
+            count: 0,
+            step: 1,
+            minCount: 0,
+            maxCount: 30,
+            incrementIcon: const Icon(
+              Icons.add,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+            decrementIcon: const Icon(
+              Icons.remove,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+            onCountChange: (value) {}),
       ],
     );
   }

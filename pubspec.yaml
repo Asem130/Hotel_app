@@ -30,6 +30,7 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.6
   custom_flutter_painter: ^1.0.1
+  customizable_counter: ^1.0.4
   date_format: ^2.0.7
   dio: ^5.4.2+1
   firebase_auth: ^4.17.9
