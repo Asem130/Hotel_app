@@ -1,14 +1,18 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hotels/constants.dart';
 import 'package:hotels/core/utils/app_router.dart';
 import 'package:hotels/core/widgets/custom_text_button.dart';
+import 'package:hotels/features/home/presentation/views/widgets/show_custom_data_picker.dart';
 
 class SearchSection extends StatelessWidget {
-  const SearchSection({super.key,required this.cityName });
+  const SearchSection({super.key, required this.cityName});
   final String cityName;
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    final firstTime = DateTime(now.year, now.month, now.day);
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Padding(
@@ -46,8 +50,16 @@ class SearchSection extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              const Item(
-                child: PickDateChild(),
+              Item(
+                onTap: () async {
+                  await showDatePicker(
+                      se
+                      context: context,
+                      initialDate: now,
+                      firstDate: firstTime,
+                      lastDate: DateTime(now.year, 10, 1));
+                },
+                child: const PickDateChild(),
               ),
               const SizedBox(
                 height: 15,

@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
               color: Color.fromARGB(255, 255, 255, 255)),
         ),
       ),
-      backgroundColor: const Color.fromARGB(26, 225, 183, 183),
+      backgroundColor:Color.fromARGB(255, 225, 225, 225),
       body: SafeArea(
           child: HomeViewBody(
         cityName: cityName,
